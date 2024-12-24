@@ -1,5 +1,3 @@
-# put zsh state files in XDG state directory
-export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 # move vimrc to XDG config directory
 export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"

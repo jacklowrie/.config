@@ -5,9 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# put zsh state files in XDG state directory
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+
 # ZimFW setup
 zstyle ':zim:zmodule' use 'degit'
 zstyle ':zim:input' double-dot-expand yes
+zstyle ':zim:completion' dumpfile ${XDG_CACHE_HOME}/zsh/zcompdump
+zstyle ':completion::complete:*' cache-path ${XDG_CACHE_HOME}/zsh
 ZIM_HOME=$XDG_CACHE_HOME/zim
 ZIM_CONFIG_FILE=$XDG_CONFIG_HOME/zim/zimrc
 ## Download zimfw plugin manager if missing.
