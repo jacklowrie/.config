@@ -1,0 +1,15 @@
+" XDG Base Directory Specification compliance
+set viminfofile^=$XDG_STATE_HOME/vim/viminfo
+set directory^=$XDG_STATE_HOME/vim/swap//
+set backupdir^=$XDG_DATA_HOME/vim/backup//
+set undodir^=$XDG_STATE_HOME/vim/undo//
+
+" Enable line numbers
+set number
+
+" Enable syntax highlighting
+syntax enable
+
+" use fzf in vim
+set rtp+=/opt/homebrew/opt/fzf
+

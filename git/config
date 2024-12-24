@@ -1,0 +1,4 @@
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = ${XDG_CONFIG_HOME}/git/ignore
