@@ -31,6 +31,7 @@ source ${ZIM_HOME}/init.zsh
 # move zcompcache to XDG_CACHE_HOME
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompcache"
 
+source $XDG_CONFIG_HOME/zsh/.aliases
 
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
