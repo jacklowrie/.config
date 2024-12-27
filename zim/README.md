@@ -1,4 +1,4 @@
-#ZimFW config
+# ZimFW config
 [Zim Framework](https://zimfw.sh) is a zsh config
 framework. It's lighter than `oh-my-zsh`, and
 more user-friendly than `zinit`.
