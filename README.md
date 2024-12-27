@@ -49,8 +49,7 @@ here know to look for configs in this directory without further setup.
 
 ### MacOS
 1. copy this repo to $HOME folder (as `.config`).
-2. Use the included brewfile to install the tools (or manually install a subset)
-3. create a `.zshenv` in the home folder, and have it source this config.
+2. create a `.zshenv` in the home folder, and have it source this config.
     - see `macos.zshenv` for an example. All it does is manually set `$XDG`
 variables, then source the zshenv in this repo.
     - you can also set machine-specific environment variables here.
@@ -58,6 +57,8 @@ variables, then source the zshenv in this repo.
 > You'll need to make sure the directories those variables point outside
 > this repo to exist. If you don't, the config should still work, but many
 > of these tools will fall back to polluting your home directory :(.
+3. restart your terminal (or source that `.zshenv`)
+4. Use the included brewfile to install the tools (or manually install a subset)
 
 ### Linux
 TBD, likely comparable to mac but without needing to manually set 
