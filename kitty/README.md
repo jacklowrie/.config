@@ -8,6 +8,7 @@ for config options. Don't forget to check the available
 ## Changing app icon
 [see the FAQ](https://sw.kovidgoyal.net/kitty/faq/#i-do-not-like-the-kitty-icon) for
 the full process and for some icon alternatives.
+
 **tldr** if you put a `.icns` file in this directory and change the name
 to `kitty.app.icns`, kitty will automatically use it everywhere on mac.
 changing the name is key - all other `.icns` will be ignored. The other method
