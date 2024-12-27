@@ -9,9 +9,9 @@ are, what is git-ignored/why, and where to look for more info.
 
 I use ZSH for interactive shells wherever possible, and bash wherever
 I can't. As such, `.config/zsh` is a good place to start. In addition,
-there's an example `$HOME/.zshenv` for setting up macs (not version-controlled,
-see below), and a `brewfile` (that is version-controlled) for installing
-the tools.
+there's an example `$HOME/.zshenv` for setting up macs (real one not 
+version-controlled, see below), and a `brewfile` (that is version-controlled) 
+for installing the tools.
 
 ### XDG Base Directory Spec
 Many of the tools configured here fully or partially adhere to the XDG Base 
@@ -53,6 +53,7 @@ here know to look for configs in this directory without further setup.
 3. create a `.zshenv` in the home folder, and have it source this config.
     - see `macos.zshenv` for an example. All it does is manually set `$XDG`
 variables, then source the zshenv in this repo.
+    - you can also set machine-specific environment variables here.
 >[!note]
 > You'll need to make sure the directories those variables point outside
 > this repo to exist. If you don't, the config should still work, but many
