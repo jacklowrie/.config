@@ -2,4 +2,4 @@
 https://cli.github.com
 
 Great tool, but the contents of the config are sensitive.
-Hence the `.gitignore`.
+Hence the aggressive `.gitignore`.
