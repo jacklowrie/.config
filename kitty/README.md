@@ -3,6 +3,7 @@
 - `kitty.conf` is the main config file. Look at [the docs](https://sw.kovidgoyal.net/kitty/conf/)
 for config options. Don't forget to check the available
 [kittens](https://sw.kovidgoyal.net/kitty/kittens_intro/) for more/easier options & changes.
+- `kitty.app.icns` my current/favorite alternative app icon. Name:Ember(Neue) Credit: [k0nserv](https://github.com/k0nserv/kitty-icon)
 
 ## Changing app icon
 [see the FAQ](https://sw.kovidgoyal.net/kitty/faq/#i-do-not-like-the-kitty-icon) for
@@ -10,7 +11,7 @@ the full process and for some icon alternatives.
 **tldr** if you put a `.icns` file in this directory and change the name
 to `kitty.app.icns`, kitty will automatically use it everywhere on mac.
 changing the name is key - all other `.icns` will be ignored. The other method
-is brittle on mac. My favorite/current is in version-control. Credit: [k0nserv](https://github.com/k0nserv/kitty-icon)
+is brittle on mac. My favorite/current is in version-control. 
 
 
 ## Ignored files
