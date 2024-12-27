@@ -12,7 +12,7 @@ the full process and for some icon alternatives.
 **tldr** if you put a `.icns` file in this directory and change the name
 to `kitty.app.icns`, kitty will automatically use it everywhere on mac.
 changing the name is key - all other `.icns` will be ignored. The other method
-is brittle on mac. My favorite/current is in version-control. 
+is brittle on mac.
 
 
 ## Ignored files
