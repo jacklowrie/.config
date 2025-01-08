@@ -1,0 +1,19 @@
+alias srcrc="source $XDG_CONFIG_HOME/zsh/.zshrc"
+
+
+## git
+alias gs="git status"
+alias ga="git add"
+alias gcm="git commit -m"
+alias gacm="git add . && git commit -m"
+alias gd="git diff"
+alias gp="git push"
+alias gf="git fetch"
+alias gpp="git pull"
+
+## qol
+alias m="make"
+alias mcm="make clean && make"
+
+## ls
+alias la="ls -a"

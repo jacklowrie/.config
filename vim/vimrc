@@ -1,0 +1,153 @@
+"Jack's vim config
+set nocompatible
+source $XDG_CONFIG_HOME/vim/plugins.vim " vundle plugins listed there
+
+" source vimrc on save
+augroup srcrc
+	autocmd!
+	autocmd BufWritePost vimrc source %
+augroup END
+
+
+
+" XDG Base Directory Specification compliance
+set viminfofile^=$XDG_STATE_HOME/vim/viminfo
+set directory^=$XDG_STATE_HOME/vim/swap//
+set backupdir^=$XDG_DATA_HOME/vim/backup//
+set undodir^=$XDG_STATE_HOME/vim/undo//
+
+set tags+=tags;$HOME
+
+
+" use fzf in vim
+set rtp+=/opt/homebrew/opt/fzf
+
+
+
+" change leader key from \ to ,
+let mapleader = ','
+
+"----------------------------plugin settings ----------------------------
+let g:python_highlight_all = 1 " improved python syntax highlighting
+
+" Whitespace
+" default tabs to 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+
+
+
+" display settings
+set splitbelow
+set splitright
+
+nmap <leader>j <C-W><C-J>
+nmap <leader>l <C-W><C-L>
+nmap <leader>k <C-W><C-K>
+nmap <leader>h <C-W><C-H>
+
+set fillchars+=vert:\ 
+
+"----------------------------ctrlp settings ----------------------------
+nmap <leader>p :CtrlP<cr>
+nmap <leader>b :CtrlPBuffer<cr>
+nmap <leader>r :CtrlPMRU<cr>
+nmap <leader>m :CtrlPMixed<cr>
+let g:ctrlp_root_markers = ['.ctrlp'] " manually set search root with this file
+
+" mode based display changes
+
+" toggle line numbers by mode.
+" - hybrid line numbers in normal mode
+" - absolute line numbers in insert and off focus
+" source: https://jeffkreeftmeijer.com/vim-number/
+set number
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+	autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+ 
+" Use a line cursor within insert mode and a block cursor everywhere else.
+" source: https://nickjanetakis.com/blog/change-your-vim-cursor-from-a-block-to-line-in-normal-and-insert-mode
+"
+" Reference chart of values:
+"   Ps = 0  -> blinking block.
+"   Ps = 1  -> blinking block (default).
+"   Ps = 2  -> steady block.
+"   Ps = 3  -> blinking underline.
+"   Ps = 4  -> steady underline.
+"   Ps = 5  -> blinking bar (xterm).
+"   Ps = 6  -> steady bar (xterm).
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
+
+
+
+" colorscheme settings
+syntax enable
+set background=dark
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'hard'
+" For better performance
+let g:everforest_better_performance = 1
+let g:everforest_enable_italic = 1
+colorscheme everforest
+
+
+
+" kitty compatibility
+" Mouse support
+set mouse=a
+set ttymouse=sgr
+set balloonevalterm
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
+let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
+let &t_Ce = "\e[4:0m"
+" Strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Truecolor support
+let &t_8f = "\e[38:2:%lu:%lu:%lum"
+let &t_8b = "\e[48:2:%lu:%lu:%lum"
+let &t_RF = "\e]10;?\e\\"
+let &t_RB = "\e]11;?\e\\"
+" Bracketed paste
+let &t_BE = "\e[?2004h"
+let &t_BD = "\e[?2004l"
+let &t_PS = "\e[200~"
+let &t_PE = "\e[201~"
+" Cursor control
+let &t_RC = "\e[?12$p"
+let &t_SH = "\e[%d q"
+let &t_RS = "\eP$q q\e\\"
+let &t_SI = "\e[5 q"
+let &t_SR = "\e[3 q"
+let &t_EI = "\e[1 q"
+let &t_VS = "\e[?12l"
+" Focus tracking
+let &t_fe = "\e[?1004h"
+let &t_fd = "\e[?1004l"
+execute "set <FocusGained>=\<Esc>[I"
+execute "set <FocusLost>=\<Esc>[O"
+" Window title
+let &t_ST = "\e[22;2t"
+let &t_RT = "\e[23;2t"
+
+" vim hardcodes background color erase even if the terminfo file does
+" not contain bce. This causes incorrect background rendering when
+" using a color theme with a background color in terminals such as
+" kitty that do not support background color erase.
+let &t_ut=''
+
+set termguicolors " allow vim to use true colors, just like kitty
+
