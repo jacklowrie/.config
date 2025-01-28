@@ -1,6 +1,11 @@
 "Jack's vim config
 set nocompatible
-source $XDG_CONFIG_HOME/vim/plugins.vim " vundle plugins listed there
+
+if !exists("$XDG_CONFIG_HOME")
+    let $XDG_CONFIG_HOME=$HOME . "/.config"
+endif
+
+source $XDG_CONFIG_HOME/vim/plugins.vim " source plugins
 
 " source vimrc on save
 augroup srcrc

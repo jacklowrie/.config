@@ -12,6 +12,9 @@
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
+if !exists("$XDG_DATA_HOME")
+    let $XDG_DATA_HOME = $HOME . "/.local/share"
+endif
 set rtp+=$XDG_DATA_HOME/vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -35,6 +38,8 @@ Plugin 'garbas/vim-snipmate'  " snippet manager
 
 Plugin 'ctrlpvim/ctrlp.vim'   " better searching
 Plugin 'ervandew/supertab'    " insert-mode completions with tab
+
+Plugin 'whonore/Coqtail'      " for cs565 @ Purdue
 " --------------------------------------------------------------------
 
 
