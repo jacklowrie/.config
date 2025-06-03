@@ -27,6 +27,7 @@ endif
 
 set rtp+=$XDG_DATA_HOME/vim/Vundle.vim
 call vundle#begin("$XDG_DATA_HOME/vim")
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
