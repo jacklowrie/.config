@@ -1,0 +1,118 @@
+snippet inc
+	#include <${1:stdio}.h>${0}
+
+snippet Inc
+	#include "${1:`vim_snippets#Filename("$1.h")`}"${0}
+
+snippet def
+	#define ${0}
+
+snippet defun
+	#define ${1:FUN_MACRO}(${2:args}) \\
+		do { \\
+			${0:body} \\
+		} while (0)
+
+snippet if
+	if (${1:true}) {
+		${0:${VISUAL}}
+	}
+
+snippet elif
+	else if (${1:true}) {
+		${0:${VISUAL}}
+	}
+
+snippet else
+	else {
+		${0:${VISUAL}}
+	}
+
+snippet while
+	while (${1:true}) {
+		${0:${VISUAL}}
+	}
+
+snippet do
+	do {
+		${0:${VISUAL}}
+	} while (${1:true});
+
+snippet for
+	for (int ${1:i} = 0; $1 < ${2:count}; $1${3:++}) {
+		${0}
+	}
+
+snippet /**f
+	/**
+	 * ${1:Short description.}
+	 *
+	 * ${2:Long description.}
+	 *
+	 * ${3:@param}
+	 *
+	 * ${4:@return}
+	 *
+	 * ${5:@error}
+	 *
+	 * ${6:@assert}
+	 */
+
+snippet /**h
+	/**
+	 * Homework ${1:#} ***TA SOLUTION ***
+	 * Jack Lowrie
+	 * CS 240, Spring 2025
+	 * Purdue University
+	 */
+
+
+snippet sout
+	fprintf(stdout, "${1}\\n", ${2});
+	${0}
+
+snippet serr
+	fprintf(stderr, "\\033[1;33m${1:yellow error message}\\n\\033[0m\"${2:, ...});
+	${0}
+
+snippet sin
+	scanf( ${1:const char *format}, ${2:...});
+	${0}
+
+snippet fscanf
+	fscanf( ${1:fileptr}, ${2:format}, ${3:...})${0:;}
+
+snippet fgets
+	fgets(${1:char* buffer}, ${2:int count}, ${3:FILE* input_stream});
+	${0}
+
+snippet fputs
+	fputs(${1:char* string}, ${2:int count}, ${3:FILE* output_stream});
+	${0}
+
+snippet fseek
+	fseek(${1:fileptr}, ${2:0}, SEEK_${3:SET|CURR|END})${0:;}
+
+snippet ftell
+	ftell(${1:fileptr})${0:;}
+
+snippet rewind
+	rewind(${1:fileptr})${0:;}
+
+snippet strncpy
+	strncpy(${1:dest}, ${2:src}, ${3:n})${0:;}
+
+
+snippet strncmp
+	strncmp( ${1:lhs}, ${2:rhs}, ${3:n})${0:;}
+
+snippet sprintf
+	sprintf(${1:buffer}, ${2:fstring}, ${3:...})${0:;}
+
+snippet assert
+	assert(${1:1==1});
+
+snippet new
+	${1:name} = malloc(sizeof ${2:_t});
+	assert(${1:name});
+

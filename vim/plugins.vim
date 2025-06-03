@@ -11,9 +11,22 @@
 
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=$XDG_DATA_HOME/vim/bundle/Vundle.vim
-call vundle#begin()
+" set XDG if not set
+if !exists("$XDG_CONFIG_HOME")
+    let $XDG_CONFIG_HOME=$HOME . "/.config/"
+endif
+if !exists("$XDG_STATE_HOME")
+    let $XDG_STATE_HOME=$HOME . "/.local/state/"
+endif
+if !exists("$XDG_DATA_HOME")
+    let $XDG_DATA_HOME=$HOME . "/.local/share/"
+endif
+if !exists("$XDG_CACHE_HOME")
+    let $XDG_CACHE_HOME=$HOME . "/.cache/"
+endif
+
+set rtp+=$XDG_DATA_HOME/vim/Vundle.vim
+call vundle#begin("$XDG_DATA_HOME/vim")
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -23,18 +36,17 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 " --------------------------------------------------------------------
+Plugin 'garbas/vim-snipmate' " snippets
 Plugin 'marcweber/vim-addon-mw-utils' " needed for snipmate
-Plugin 'tomtom/tlib_vim' " utils for vim plugins. needed by snipmate
+Plugin 'tomtom/tlib_vim' " needed for snipmate
 
 Plugin 'sainnhe/everforest'   " color scheme
 Plugin 'sheerun/vim-polyglot' " better syntax highlighting
 
 Plugin 'tpope/vim-surround'   " iykyk
 Plugin 'tpope/vim-vinegar'    " better netrw/file explorer
-Plugin 'garbas/vim-snipmate'  " snippet manager
 
 Plugin 'ctrlpvim/ctrlp.vim'   " better searching
-Plugin 'ervandew/supertab'    " insert-mode completions with tab
 " --------------------------------------------------------------------
 
 

@@ -1,4 +1,46 @@
 "Jack's vim config
+" set XDG if not set
+if !exists("$XDG_CONFIG_HOME")
+    let $XDG_CONFIG_HOME=$HOME . "/.config/"
+endif
+if !exists("$XDG_STATE_HOME")
+    let $XDG_STATE_HOME=$HOME . "/.local/state/"
+endif
+if !exists("$XDG_DATA_HOME")
+    let $XDG_DATA_HOME=$HOME . "/.local/share/"
+endif
+if !exists("$XDG_CACHE_HOME")
+    let $XDG_CACHE_HOME=$HOME . "/.cache/"
+endif
+
+" the next three prepend the filepath for vim's autogeneratied file, so they
+" go in reverse order. what we're adding is:
+"
+" [XDG folder],[XDG cache folder],[my home directory]
+"
+" This way, we'll try the organized way first, fallback to the cache as a
+" catch all, and then my home directory if the XDG files don't exist.
+" system defaults follow but should never be hit.
+
+" the last custom fallback is my home directory.
+set viminfofile^=$HOME//
+set directory^=$HOME//
+set backupdir^=$HOME//
+set undodir^=$HOME//
+
+" fall back to the cache if something goes wrong
+set viminfofile^=$XDG_CACHE_HOME//
+set directory^=$XDG_CACHE_HOME//
+set backupdir^=$XDG_CACHE_HOME//
+set undodir^=$XDG_CACHE_HOME//
+
+" XDG Base Directory Specification compliance. This should be the 1st attempt.
+set viminfofile^=$XDG_STATE_HOME/vim/viminfo
+set directory^=$XDG_STATE_HOME/vim/swap//
+set backupdir^=$XDG_DATA_HOME/vim/backup//
+set undodir^=$XDG_STATE_HOME/vim/undo//
+
+
 set nocompatible
 source $XDG_CONFIG_HOME/vim/plugins.vim " vundle plugins listed there
 
@@ -10,22 +52,12 @@ augroup END
 
 
 
-" XDG Base Directory Specification compliance
-set viminfofile^=$XDG_STATE_HOME/vim/viminfo
-set directory^=$XDG_STATE_HOME/vim/swap//
-set backupdir^=$XDG_DATA_HOME/vim/backup//
-set undodir^=$XDG_STATE_HOME/vim/undo//
 
 set tags+=tags;$HOME
 
-
-" use fzf in vim
-set rtp+=/opt/homebrew/opt/fzf
-
-
-
+set rtp+=$XDG_CONFIG_HOME/vim
 " change leader key from \ to ,
-let mapleader = ','
+let mapleader = ' '
 
 "----------------------------plugin settings ----------------------------
 let g:python_highlight_all = 1 " improved python syntax highlighting
@@ -81,6 +113,7 @@ augroup END
 "   Ps = 4  -> steady underline.
 "   Ps = 5  -> blinking bar (xterm).
 "   Ps = 6  -> steady bar (xterm).
+set guicursor=n:block
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
 
@@ -89,16 +122,14 @@ let &t_EI = "\e[1 q"
 " colorscheme settings
 syntax enable
 set background=dark
-" Set contrast.
-" This configuration option should be placed before `colorscheme everforest`.
-" Available values: 'hard', 'medium'(default), 'soft'
 let g:everforest_background = 'hard'
+
 " For better performance
 let g:everforest_better_performance = 1
 let g:everforest_enable_italic = 1
 colorscheme everforest
 
-
+set cc=80
 
 " kitty compatibility
 " Mouse support

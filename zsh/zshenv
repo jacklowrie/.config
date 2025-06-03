@@ -1,6 +1,9 @@
+# Set XDG Base Directory environment variables
+source "$HOME/.config/zsh/xdg.zsh"
 
 # move vimrc to XDG config directory
-export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" 
+export VIMINIT='source $MYVIMRC'
 
 # set tldr config to XDG Base Dir spec
 export TLRC_CONFIG="$XDG_CONFIG_HOME/tldr"

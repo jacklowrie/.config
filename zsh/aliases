@@ -1,5 +1,6 @@
 alias srcrc="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
+alias vi="vim -u ~/.config/vim/vimrc"
 
 ## git
 alias gs="git status"
