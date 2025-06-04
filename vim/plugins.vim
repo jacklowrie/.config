@@ -25,7 +25,7 @@ if !exists("$XDG_CACHE_HOME")
     let $XDG_CACHE_HOME=$HOME . "/.cache/"
 endif
 
-set rtp+=$XDG_DATA_HOME/vim/Vundle.vim
+set rtp+=$XDG_DATA_HOME/vim/bundle/Vundle.vim
 call vundle#begin("$XDG_DATA_HOME/vim")
 
 " alternatively, pass a path where Vundle should install plugins
